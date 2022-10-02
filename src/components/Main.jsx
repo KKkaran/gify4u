@@ -3,17 +3,22 @@ import HomeGifs from './HomeGifs'
 import Results from './Results'
 
 function Main() {
+    //api key from the .env folder
+    const APIKEY = process.env.REACT_APP_.APIKEY
 
     const [loading,setLoading] = useState(false)
     const [keyword,setKeyword] = useState("")
-
     const findGif = (event)=>{
         event.preventDefault()
         console.log("finding gifs...")
         //finding new gifs as per the result...
         setLoading(true)
-        console.log(keyword)
-
+        getData();
+    }
+    //this below method will call the api and get the related gifs
+    const getData = () => {
+        let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&q=${keyword}`
+        console.log(url)
     }
   return (
     <div className='border border-dark p-3 m-2'>
