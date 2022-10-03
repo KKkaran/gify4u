@@ -22,7 +22,7 @@ function Main() {
         console.log(url)
     }
   return (
-    <div className='border border-dark p-3 m-2'>
+    <div className='border border-dark p-3 m-2' style={{height:'82vh'}}>
         <form action="" onSubmit={findGif} className='p-2'>
               <input type="text" required value={keyword} onChange={(e) => { setKeyword(e.target.value) }} placeholder='Keyword for gifs...' /> <br /> <br />
             <input type="submit" className='btn btn-info' value='Search Gifs'/>

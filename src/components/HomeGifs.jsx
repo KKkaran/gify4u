@@ -34,7 +34,7 @@ function HomeGifs() {
     return images.map(image => {
               return (
                 <div>
-                  <img src={image} alt="Logo" /> 
+                  <img src={image} width='300px' height='250px' alt="Logo" /> 
                 </div>
               )
             })
@@ -42,7 +42,7 @@ function HomeGifs() {
   return (
     <>
       {loaded ? (
-        <div className='border border-dark d-flex  '>
+        <div className='border border-dark d-flex' >
           {
             renderGifs()
           }
