@@ -4,8 +4,9 @@ import Results from './Results'
 
 function Main() {
     //api key from the .env folder
-    const APIKEY = process.env.REACT_APP_.APIKEY
+    const APIKEY = process.env.REACT_APP_APIKEY
 
+    console.log(process.env.REACT_APP_APIKEY)
     const [loading,setLoading] = useState(false)
     const [keyword,setKeyword] = useState("")
     const findGif = (event)=>{

@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 
 function HomeGifs() {
-  const Trending_URL = `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_.APIKEY}`
+  const Trending_URL = `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_APIKEY}`
   const [results, setResults] = useState()
   const [loaded,setLoaded] = useState(false)
   const [images,setImages] = useState([])
