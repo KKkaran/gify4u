@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
+import RenderGifs from './RenderGifs'
 
 function HomeGifs() {
   const Trending_URL = `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_APIKEY}`
@@ -13,7 +14,7 @@ function HomeGifs() {
   
   useEffect(() => {
     if (results) {
-      results.map(r => {
+      results.map((r,index) => {
         //console.log(r.images.original.url)
         setImages(i=>[...i,r.images.original.url])
       })
@@ -30,23 +31,15 @@ function HomeGifs() {
       console.log(error)
     }
   }
-  const renderGifs = () => {
-    return images.map(image => {
-              return (
-                <div>
-                  <img src={image} width='300px' height='250px' alt="Logo" /> 
-                </div>
-              )
-            })
-  }
+ 
   return (
     <>
       {loaded ? (
-        <div className='border border-dark d-flex' >
-          {
-            renderGifs()
-          }
+        
+        <div className='d-flex border border-dark p-3 m-2'>
+          <RenderGifs images={images} />  
         </div>
+  
 
       ):(<h3>LOADING...</h3>)}
     </>

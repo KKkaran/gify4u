@@ -4,7 +4,7 @@ function Results({ keyword, search }) {
   
   const [gif, setgif] = useState(keyword)
   console.log(search + " is vlaue of search")
-  search && setgif(keyword);
+  //search && setgif(keyword);
 
 
   return (
