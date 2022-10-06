@@ -1,4 +1,4 @@
-import React, { useState,useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import HomeGifs from './HomeGifs'
 import Results from './Results'
 import RenderGifs from './RenderGifs'
@@ -49,13 +49,13 @@ function Main() {
     //     getData()
     // },[gifUrl])
   return (
-    <div className='border border-dark p-3 m-2' style={{height:'82vh'}}>
+    <div className='border border-dark p-3 bg-dark' style={{height:'88vh'}}>
         <form action="" onSubmit={findGif} className='p-2'>
               <input type="text" required value={keyword} onChange={(e) => { setKeyword(e.target.value) }} placeholder='Keyword for gifs...' /> <br /> <br />
             <input type="submit" className='btn btn-info' value='Search Gifs'/>
         </form>
         {loading ? <>
-              <div className='d-flex border border-dark p-3 m-2'>
+              <div className='d-flex border border-dark p-3 m-2 container'>
                   {/* {go} */}
                   {
                   <RenderGifs images={readyImages}/>

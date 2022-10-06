@@ -33,7 +33,7 @@ function HomeGifs() {
   }
  
   return (
-    <>
+    <div className=''>
       {loaded ? (
         
         <div className='d-flex border border-dark p-3 m-2'>
@@ -42,7 +42,7 @@ function HomeGifs() {
   
 
       ):(<h3>LOADING...</h3>)}
-    </>
+    </div>
   )
 }
 
