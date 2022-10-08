@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import HomeGifs from './HomeGifs'
-import Results from './Results'
 import RenderGifs from './RenderGifs'
 import axios from 'axios'
+import {motion} from 'framer-motion'
 //importing queries from utils folder to run to fetch the data from the backend
 function Main() {
     //api key from the .env folder
@@ -48,21 +48,30 @@ function Main() {
     //     console.log("now gif changed")
     //     getData()
     // },[gifUrl])
+    let imagess = readyImages.map(i=>i);
   return (
     <div className='border border-dark p-3 bg-dark' style={{height:'88vh'}}>
         <form action="" onSubmit={findGif} className='p-2'>
               <input type="text" required value={keyword} onChange={(e) => { setKeyword(e.target.value) }} placeholder='Keyword for gifs...' /> <br /> <br />
-            <input type="submit" className='btn btn-info' value='Search Gifs'/>
-        </form>
-        {loaded ? <>
-              <div className='d-flex border border-dark p-3 m-2 container'>
-                  {/* {go} */}
+            <motion.input whileHover={{scale:1.2}} type="submit" className='btn btn-info' value='Search Gifs'/>
+          </form>
+          
+        {loaded ? 
+              <div className='d-flex flex-column'>
+              <div style={{overflow:'hidden'}}> <motion.div animate={{ x: -10000}} transition={{delay:1, duration:90}} className='d-flex align-content-around  border border-dark p-3 m-2'>
                   {
                   <RenderGifs images={readyImages}/>
-                  //console.log("input put")
                   }
-        </div>
-    </> : <HomeGifs/>}
+              </motion.div>
+                  </div>
+                <div style={{overflow:'hidden'}}> <motion.div animate={{ x: -10000}} transition={{delay:1, duration:90}} className='d-flex align-content-around  border border-dark p-3 m-2'>
+                  {
+                  <RenderGifs images={imagess.reverse()}/>
+                  }
+              </motion.div>
+            </div>
+            </div>
+     : <HomeGifs/>}
     </div>
     )
 }
