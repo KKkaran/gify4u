@@ -3,12 +3,12 @@ import HomeGifs from './HomeGifs'
 import Results from './Results'
 import RenderGifs from './RenderGifs'
 import axios from 'axios'
-
+//importing queries from utils folder to run to fetch the data from the backend
 function Main() {
     //api key from the .env folder
     const APIKEY = process.env.REACT_APP_APIKEY
     const [gifUrl,setGifUrl] = useState("")
-    const [loading,setLoading] = useState(false)
+    const [loaded,setLoading] = useState(false)
     const [keyword, setKeyword] = useState("")
     const [userResults, setUserResults] = useState()
     const [readyImages, setReadyImages] = useState([])
@@ -54,7 +54,7 @@ function Main() {
               <input type="text" required value={keyword} onChange={(e) => { setKeyword(e.target.value) }} placeholder='Keyword for gifs...' /> <br /> <br />
             <input type="submit" className='btn btn-info' value='Search Gifs'/>
         </form>
-        {loading ? <>
+        {loaded ? <>
               <div className='d-flex border border-dark p-3 m-2 container'>
                   {/* {go} */}
                   {

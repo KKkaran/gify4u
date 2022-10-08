@@ -1,8 +1,15 @@
 import React from 'react'
-
+import '../App.css'
 function NoMatch() {
   return (
-    <h2>No Match for link</h2>
+    <div style={{ height: '88vh' }}>
+      
+      <h2 style={{ color: 'wheat' }}>
+        sdsd
+        <div className='noResult'></div>
+      </h2>
+
+    </div>
   )
 }
 
