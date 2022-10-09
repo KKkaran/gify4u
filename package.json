@@ -22,5 +22,8 @@
   "homepage": "https://github.com/KKkaran/gify4u#readme",
   "dependencies": {
     "concurrently": "^7.4.0"
+  },
+  "devDependencies": {
+    "webpack-pwa-manifest": "^4.3.0"
   }
 }
