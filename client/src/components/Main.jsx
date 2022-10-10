@@ -50,7 +50,7 @@ function Main() {
     // },[gifUrl])
     let imagess = readyImages.map(i=>i);
   return (
-    <div className='border border-dark p-3 bg-dark' style={{height:'88vh'}}>
+    <div className='border border-dark p-3 bg-dark' style={{height:''}}>
         <form action="" onSubmit={findGif} className='p-2'>
               <input type="text" required value={keyword} onChange={(e) => { setKeyword(e.target.value) }} placeholder='Keyword for gifs...' /> <br /> <br />
             <motion.input whileHover={{scale:1.2}} type="submit" className='btn btn-info' value='Search Gifs'/>

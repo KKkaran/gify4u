@@ -23,9 +23,10 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div className="App bg-dark">
+      <div className="App bg-dark" style={{height:'100vh',position:'relative'}}>
         <Router>
-          <Header/>
+          <div>
+            <Header/>
           <div>
             <Switch>
               <Route exact path="/" component={Main} />
@@ -34,6 +35,7 @@ function App() {
               <Route exact path="/dashboard" component={Dashboard} />
               <Route component={NoMatch} />
             </Switch>
+          </div>
           </div>
           <Footer/>
         </Router>
