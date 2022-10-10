@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
+import noData from '../images/noResult2.gif'
 import HomeGifs from './HomeGifs'
 import RenderGifs from './RenderGifs'
 import axios from 'axios'
@@ -12,10 +13,16 @@ function Main() {
     const [keyword, setKeyword] = useState("")
     const [userResults, setUserResults] = useState()
     const [readyImages, setReadyImages] = useState([])
+    const [valid,setValid] = useState(true)
      //the user passed input results will be saved in the userResults
     let images = [] //didnt make this a state var cuz everytime item is pushed no render but once the array is good we save the content to a state var so the final render is done once.
     useEffect(() => {
         if (userResults) {
+            if (userResults.length === 0) {
+                //not a valid input since no results came back
+                console.log("no data returned back")
+                setValid(false)
+            }
             userResults.map(r => {
                 //console.log(r.images.original.url)
                 images.push(r.images.original.url)
@@ -29,6 +36,7 @@ function Main() {
         console.log("finding gifs...")
         //finding new gifs as per the result...
         setLoading(true)
+        setValid(true)
         getData()
     }
     
@@ -57,8 +65,8 @@ function Main() {
           </form>
           
         {loaded ? 
-              <div className='d-flex flex-column'>
-              <div style={{overflow:'hidden'}}> <motion.div animate={{ x: -10000}} transition={{delay:1, duration:90}} className='d-flex align-content-around  border border-dark p-3 m-2'>
+              (valid ? (<div className='d-flex flex-column'>
+              <div style={{overflow:'hidden'}}> <motion.div animate={{ x: -10000}} transition={{type:'spring',delay:1, duration:90}} className='d-flex align-content-around  border border-dark p-3 m-2'>
                   {
                   <RenderGifs images={readyImages}/>
                   }
@@ -70,7 +78,12 @@ function Main() {
                   }
               </motion.div>
             </div>
-            </div>
+              </div>) : (
+                      <div className='pt-3'>
+                          <h2 className='text-light'>Not a valid search!!</h2>
+                          <img src={noData} alt="" />
+                  </div>
+              ))
      : <HomeGifs/>}
     </div>
     )

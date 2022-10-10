@@ -35,10 +35,10 @@ function HomeGifs() {
     <div className='text-light' style={{overflow:'hidden'}}>
       {loaded ? (
         <>
-          <motion.div animate={{ x: -20000 }} transition={{ delay: 2, duration: 90 }} className='d-flex border border-dark p-3 m-2'>
+          <motion.div animate={{ x: -10000 }} transition={{ delay: 2, duration: 90, repeat:Infinity }} className='d-flex border border-dark p-3 m-2'>
           <RenderGifs images={images}/>
           </motion.div>
-          <motion.div animate={{ x: -20000}} transition={{delay:2, duration:90}} className='d-flex border border-dark p-3 m-2' style={{ order: -1}}>
+          <motion.div animate={{ x: -10000}} transition={{delay:2, duration:90, repeat:Infinity}} className='d-flex border border-dark p-3 m-2' style={{ order: -1}}>
             <RenderGifs images={imagess.reverse()}  />
           </motion.div>
         </>
