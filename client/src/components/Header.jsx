@@ -6,7 +6,28 @@ function Header() {
   return (
     <div className='bg-dark text-light p-2 d-flex justify-content-between container'>
       <div>
-        <motion.h3 whileHover={{scale:1.2}} className='p-2'><Link style={{ color: "#FFF", textDecoration: "none" }} to='/'>Giphy4U</Link></motion.h3>
+        <motion.div whileHover={{scale:1.2}} className='d-flex '>
+          <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1.5 }}
+      transition={{
+        default: {
+          duration: 0.3,
+          ease: [0, 0.71, 0.2, 1.01]
+        },
+        scale: {
+          type: "spring",
+          damping: 5,
+          stiffness: 100,
+          restDelta: 0.001,
+          repeat: Infinity,
+          repeatDelay:1
+        }
+      }}
+    ><h1 style={{color:'#FF00FF'}}>G</h1></motion.div>
+        <h3 className='pt-2 px-2'><Link style={{ color: "#FFF", textDecoration: "none" }} to='/'>iphy4U</Link></h3>
+        </motion.div>
         <h5>{Auth.loggedIn() && `Welcome ${Auth.getProfile().data.username}` }</h5>
       </div>
       
