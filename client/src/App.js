@@ -23,7 +23,7 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div className="App bg-dark" style={{height:'100vh',position:'relative'}}>
+      <div className="App bg-dark" style={{minHeight:'100vh',position:'relative'}}>
         <Router>
           <div>
             <Header/>
