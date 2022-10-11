@@ -66,7 +66,7 @@ function Main() {
           
         {loaded ? 
               (valid ? (<div className='d-flex flex-column'>
-              <div style={{overflow:'hidden'}}> <motion.div animate={{ x: -10000}} transition={{type:'spring',delay:1, duration:90}} className='d-flex align-content-around  border border-dark p-3 m-2'>
+              <div style={{overflow:'hidden'}}> <motion.div animate={{ x: -10000}} transition={{delay:1, duration:90}} className='d-flex align-content-around  border border-dark p-3 m-2'>
                   {
                   <RenderGifs images={readyImages}/>
                   }
